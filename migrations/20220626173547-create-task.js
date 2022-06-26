@@ -21,12 +21,12 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       createdAt: {
-        field: 'create_at',
+        field: 'created_at',
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        field: 'update_at',
+        field: 'updated_at',
         allowNull: false,
         type: Sequelize.DATE
       }
