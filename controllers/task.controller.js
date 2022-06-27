@@ -1,3 +1,4 @@
+const createError = require('http-errors');
 const { Task } = require('../models');
 
 module.exports.createTask = async (req, res, next) => {
@@ -12,17 +13,15 @@ module.exports.createTask = async (req, res, next) => {
 };
 
 module.exports.findTask = async (req, res, next) => {
-  try {
-    const {
-      params: { id },
-    } = req;
+  const {
+    params: { id },
+  } = req;
 
-    const task = await Task.findByPk(id);
-
-    res.send({ data: task });
-  } catch (error) {
-    next(error);
+  const task = await Task.findByPk(id);
+  if (!task) {
+    return next(createError(404, 'Task not found'));
   }
+  res.send({ data: task });
 };
 module.exports.updateTask = async (req, res, next) => {
   try {
