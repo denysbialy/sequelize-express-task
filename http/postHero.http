@@ -1,0 +1,10 @@
+POST http://localhost:5000/superheroes HTTP/1.1
+Content-Type: application/json
+
+{
+    "nickname": "batman",
+    "realName": "Bruce Wane",
+    "race": "human",
+    "originDescription": "American superhero film directed by Matt Reeves and starring Robert Pattinson, based on the DC comic book superhero Batman.",
+    "catchPhrase": "Hello World"
+}
